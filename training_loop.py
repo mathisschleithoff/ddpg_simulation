@@ -15,7 +15,7 @@ from environments.env_wrapper import TimeLimit2
 
 from evaluation.evaluation_callback import EvalCallback2
 
-env = "env-name"
+env = "train-env-name"
 env = TimeLimit2(env, max_episode_steps = 100)
 eval_env_rl = Monitor("test-env-name")
 eval_problem_no = "problem-no"
@@ -33,7 +33,7 @@ def linear_schedule(init_val: float, end_val: float) -> Schedule:
 # model parameters
 action_noise = NormalActionNoise(mean=np.zeros(n_actions), sigma=0.1 * np.ones(n_actions))
 learning_starts = 500
-learning_rate = linear_schedule(1e-3,1e-5)
+learning_rate = "learning-rate"
 policy_kwargs = dict(net_arch = [64,64])
 buffer_size = 10000
 replay_buffer_kwargs = dict(handle_timeout_termination = True)
