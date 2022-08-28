@@ -15,29 +15,12 @@ from environments.env_wrapper import TimeLimit2
 
 from evaluation.evaluation_callback import EvalCallback2
 
-# problem 1
-env1 = OptProblem1()
-env = TimeLimit2(env1, max_episode_steps = 100)
-eval_env_rl = Monitor(OptProblem1())
-eval_problem_no = 1
+env = "env-name"
+env = TimeLimit2(env, max_episode_steps = 100)
+eval_env_rl = Monitor("test-env-name")
+eval_problem_no = "problem-no"
 n_actions = env.action_space.shape[-1]
-gamma = 0.95
-
-# problem 2
-#env = OptProblem2()
-#env = TimeLimit2(env, max_episode_steps = 100)
-#eval_env_rl = Monitor(OptProblem2())
-#eval_problem_no = 2
-#n_actions = env.action_space.shape[-1]
-#gamma = 0.95
-
-# problem 3
-#env = OptProblem3()
-#env = TimeLimit2(env, max_episode_steps = 100)
-#eval_env_rl = Monitor(OptProblem3())
-#eval_problem_no = 3
-#n_actions = env.action_space.shape[-1]
-#gamma = 0.99
+gamma = "gamma"
 
 # schedule for learning rate (linear decay)
 def linear_schedule(init_val: float, end_val: float) -> Schedule:
