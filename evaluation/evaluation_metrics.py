@@ -1,8 +1,6 @@
 import numpy as np
 import math
 
-from environments.env_problem3_lq import TestProblem3
-
 class EvalProb1():
     def __init__(self):
         self.alpha = 0.8
