@@ -97,12 +97,12 @@ class EvalProb3():
         self.j = np.array([[-0.7883363, 1.3277898, -0.022197655],
                            [0.1501221, 0.2291501, -0.006859907]])
         self.beta = 0.99
-        self.cap_lower_bound = 10.0
-        self.cap_upper_bound = 11.4
+        self.cap_lower_bound = 5.0
+        self.cap_upper_bound = 15.0
         self.A_lower_bound = 0.5
         self.A_upper_bound = 1.5
 
-    def evaluate(self, model, rl_env):
+    def evaluate(self, model, rl_env, lq_env):
     # model 3: compare utility achieved by DDPG agent and LQ-benchmark
         self.rl_reward = []
         self.lq_reward = []
@@ -115,18 +115,18 @@ class EvalProb3():
             while not done:
                 prediction = model.predict(np.reshape(state, (1,2)), deterministic = True)
                 action = prediction[0]
-                state, reward, done, info = rl_env.step(action[0])
+                state, reward, done, info = rl_env.step(action)
                 rl_score += reward * self.beta ** (nb_steps)
                 nb_steps += 1
             
-            state = self.lq_env.reset()
+            state = lq_env.reset()
             done = False
             lq_score = 0
             nb_steps = 0
             while not done:
                 f = np.array([1, state[1], state[0]])
                 action = np.matmul(self.j,f)
-                state, reward, done, info = self.lq_env.step(action)
+                state, reward, done, info = lq_env.step(action)
                 lq_score += reward * self.beta ** (nb_steps)
                 nb_steps += 1
 

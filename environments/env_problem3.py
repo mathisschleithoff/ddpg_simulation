@@ -17,8 +17,8 @@ class OptProblem3(Env):
         self.gamma = 0.95
         self.rho = 2
 
-        self.cap_lower_bound = 10.0
-        self.cap_upper_bound = 11.4
+        self.cap_lower_bound = 5.0
+        self.cap_upper_bound = 15.0
         self.A_lower_bound = 0.5
         self.A_upper_bound = 1.5
 
@@ -63,10 +63,10 @@ class OptProblem3(Env):
         return norm_state, reward, done, info
 
     def reset(self, set_seed = False):
-        # fix seed (only for evaluation purposes)
+        # fix seed (only for prediction purposes)
         if set_seed == True:
             np.random.seed(seed = 1)
-            print('Evaluation: Seed set to 1')
+            print('Prediction: Seed set to 1')
         self.state = np.array([10.0,1.0]).astype(np.float32)
         self.n_steps = 250
 
@@ -78,21 +78,4 @@ class OptProblem3(Env):
 
         return norm_state
 
-#env = OptProblem3()
-
-#state = env.reset()
-#done = False
-#n_steps = 0
-#score = 0
-
-#while not done:
-  #random_action = np.random.uniform(low = -1., high = 1., size = (2,))
-  #state, reward, done, info = env.step(random_action)
-  #n_steps += 1
-  #score += reward
-  #print('Step:{} State:{} Action:{} Reward:{}'.format(n_steps, state, random_action, reward))
-
-#print('#', score)
-
-#check_env(env, warn=True)
 

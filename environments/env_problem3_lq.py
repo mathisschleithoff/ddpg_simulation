@@ -46,7 +46,7 @@ class TestProblem3(Env):
         # fix seed (only necessary for prediction purposes)
         if set_seed == True:
             np.random.seed(seed = 1)
-            print('Evaluation: Seed set to 1')
+            print('Prediction: Seed set to 1')
         self.state = np.array([10.0, 1.0]).astype(np.float32)
         self.n_steps = 250
 
