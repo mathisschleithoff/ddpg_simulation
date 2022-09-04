@@ -9,7 +9,7 @@ env1 = TestProblem21()
 env2 = TestProblem22()
 
 # define model
-model = DDPG.load('./run1_50000_steps')
+model = DDPG.load('./run4_50000_steps')
 
 rl_actions = []
 opt_actions = []
@@ -43,8 +43,8 @@ while not done:
     opt_actions.append(action)
     state, reward, done, info = env2.step(action)
 
-np.savez('./', rl_actions = rl_actions, opt_actions = opt_actions)
+np.savez('predictions/predictions_2', rl_actions = rl_actions, opt_actions = opt_actions)
 
-print('Deviation of predicted paths:', abs(rl_actions[49] - opt_actions[49]))
+print('Deviation of predicted paths (50 periods):', abs(rl_actions[49] - opt_actions[49]))
 
 

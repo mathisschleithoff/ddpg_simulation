@@ -22,11 +22,10 @@ while not done:
     unscaled_state = (0.5 * (state + 1.0) * 10)
     low, high = 0.0001*A*unscaled_state**alpha, 0.9999*A*unscaled_state**alpha
     unscaled_action = low + (0.5 * (action + 1.0) * (high - low))
-    print(unscaled_action)
     rl_actions.append(unscaled_action)
-    np.savez('./', rl_actions = rl_actions)
+    np.savez('predictions/predictions_1', rl_actions = rl_actions)
     state, reward, done, info = env.step(action)
 
 # deviation between predicted paths after 30 periods
 # optimal investment after 30 periods: 0.255
-print('Deviation of predicted paths:', abs(rl_actions[29] - 0.255))
+print('Deviation of predicted paths (30 periods):', abs(rl_actions[29] - 0.255))

@@ -62,7 +62,8 @@ while not done:
     lq_score += reward * 0.99 ** n_steps
     n_steps += 1
 
-print(rl_score)
-print(lq_score)
-np.savez('./', rl_labor = rl_labor, rl_inv = rl_inv,
+np.savez('predictions/predictions_3', rl_labor = rl_labor, rl_inv = rl_inv,
             lq_labor = lq_labor, lq_inv = lq_inv)
+
+print('Deviation of predicted paths for labor (50 periods):', abs(rl_labor[49] - lq_labor[49]))
+print('Deviation of predicted paths for investment (50 periods):', abs(rl_inv[49] - lq_inv[49]))
