@@ -14,25 +14,22 @@ The simulations consist of a training loop (see `training_loop.py`) in which the
 ## Usage
 
 ### Deterministic Growth Model
-Apply DDPG Algorithm + Evaluation<br>
+Apply DDPG Algorithm + Evaluation:<br>
 `training_loop.py` train-env = OptProblem1(), test-env = TestProblem1(), problem-no = 1, gamma = 0.95, learning-rate = linear_schedule(1e-3,1e-5)
 
-Trained model: view predicted path for investment
-1. `env_predict1.py`
-2. `predict_paths.R`
+View path for economic variables predicted by trained model:<br>
+1.`env_predict1.py`, 2.`predict_paths.R`
 
 ### Stochastic Growth Model
-Apply DDPG Algorithm + Evaluation<br>
+Apply DDPG Algorithm + Evaluation:<br>
 `training_loop.py` train-env = OptProblem2(), test-env = TestProblem21(), problem-no = 2, gamma = 0.95, learning-rate = linear_schedule(1e-3,1e-5)
 
-Trained model: view predicted path for investment
-1. `env_predict2.py`
-2. `predict_paths.R`
+View path for economic variables predicted by trained model:<br>
+1.`env_predict2.py`, 2.`predict_paths.R`
 
 ### Stochastic Growth Model with Divisible Labor
-Apply DDPG Algorithm + Evaluation<br>
+Apply DDPG Algorithm + Evaluation:<br>
 `training_loop.py` train-env = OptProblem3(), test-env = OptProblem3(), problem-no = 3, gamma = 0.99, learning-rate = 1e-4
 
-Trained model: view predicted paths for investment and labor
-1. `env_predict3.py`
-2. `predict_paths.R`
+View path for economic variables predicted by trained model:<br>
+1.`env_predict3.py`, 2.`predict_paths.R`
